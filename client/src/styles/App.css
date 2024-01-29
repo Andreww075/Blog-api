@@ -1,3 +1,9 @@
 body {
-  background: rgb(183, 183, 183);
+  background: #D3CCE3;
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3);
+}
+
+.translate_y_-2 {
+  transform: translateY(-.5rem);
 }

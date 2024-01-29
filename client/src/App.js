@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import Header from './components/Header'
+import Home from './routes/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 
 function App() {
@@ -11,7 +14,14 @@ function App() {
   }, [])
 
   return (
-    <p className='text-center border border-black'>{ !data ? 'Loading...' : data }</p>
+    <Router>
+      <Header />
+        <Routes>
+          <Route path='/' element={<Home />}/>
+        </Routes>
+      <Home />
+      <p>{ !data ? 'Loading...' : data }</p>
+    </Router>
   );
 }
 

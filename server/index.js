@@ -32,6 +32,10 @@ app.use((req, res, next) => {
 
 // routes
 
+app.get('/', (req, res) => {
+  console.log('Home Page')
+});
+
 app.get('/api', (req, res) => {
   res.send({
     message: 'This is the api page'
