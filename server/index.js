@@ -12,12 +12,12 @@ require('./database.js');
 // settings
 app.set('PORT', process.env.PORT || 3001);
 
-// middlewares
+// middleware
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'my_secret_app',
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }))
 app.use(passport.initialize());
@@ -27,10 +27,21 @@ app.use(express.json());
 
 // global variables
 app.use((req, res, next) => {
+  //res.locals.success_msg = req.flash('success_msg');
+  //res.locals.errors_msg = req.flash('errors_msg');
+
   next();
 })
 
 // routes
+
+const users = require('./routes/Users');
+app.use('/api/users', users);
+
+
+
+
+
 
 app.get('/', (req, res) => {
   console.log('Home Page')

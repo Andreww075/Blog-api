@@ -9,6 +9,14 @@ const links = [
   {
     name: 'SignUp',
     href: '/api/users/signup'
+  },
+  {
+    name: 'Home',
+    href: '/'
+  },
+  {
+    name: 'About',
+    href: '/about'
   }
 ]
 
@@ -23,6 +31,8 @@ const Header = () => {
         </div>
       </div>
       <div>
+        <Link to={links[2].href}>{links[2].name}</Link>
+        <Link to={links[3].href}>{links[3].name}</Link>
         <Link to={links[0].href}>{links[0].name}</Link>
         <Link to={links[1].href}>{links[1].name}</Link>
       </div>
