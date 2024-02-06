@@ -10,7 +10,7 @@ const Signin = () => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center py-12 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
+    <div className="pt-32 flex flex-col items-center justify-center py-12 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
       {
         data.length > 0 ? (
           <div className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>

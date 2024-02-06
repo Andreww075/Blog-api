@@ -41,4 +41,15 @@ users.post('/signin', passport.authenticate('local', {
   failureFlash: true
 }))
 
+users.get('/logout', (req, res) => {
+  req.logout(err => {
+    if (err) {
+      console.error('Logout Error:', err);
+      res.status(500).send('Internal Error')
+    } else {
+      res.redirect('/api/users/signin');
+    }
+  })
+})
+
 module.exports = users;

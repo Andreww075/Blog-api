@@ -32,7 +32,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center py-5 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
+    <div className="pt-32 flex flex-col items-center justify-center py-5 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
       {
         errors.length > 0 ? (
           errors.map( (error, index) => {

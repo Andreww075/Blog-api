@@ -8,6 +8,7 @@ const passport = require('passport');
 // initializations
 const app = express();
 require('./database.js');
+require('./config/passport')
 
 // settings
 app.set('PORT', process.env.PORT || 3001);
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   //res.locals.success_msg = req.flash('success_msg');
   //res.locals.errors_msg = req.flash('errors_msg');
+  res.locals.user = req.user || null;
 
   next();
 })
@@ -38,20 +40,14 @@ app.use((req, res, next) => {
 const users = require('./routes/Users');
 app.use('/api/users', users);
 
+const posts = require('./routes/Posts');
+app.use('/api/posts', posts);
 
 
-
-
-
-app.get('/', (req, res) => {
-  console.log('Home Page')
-});
 
 app.get('/api', (req, res) => {
-  res.send({
-    message: 'This is the api page'
-  })
-});
+  res.send(req.user);
+})
 
 
 app.use(express.static(path.resolve(__dirname, '../client/src')))
