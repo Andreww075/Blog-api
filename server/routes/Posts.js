@@ -6,8 +6,18 @@ const posts = express.Router();
 posts.use(express.json());
 
 posts.get('/', async (req, res) => {
-  const posts = await Post.find({});
-  res.send(posts);
+  const query = req.query;
+  const { category } = req.query;
+  console.log( query == null )
+
+  if ( category !== 'Category' ) {
+    const posts = await Post.find({ category: category });
+    res.send(posts);
+  } else {
+    const posts = await Post.find({});
+    res.send(posts);
+  }
+
 })
 
 posts.post('/addPosts', async (req, res) => {
@@ -36,26 +46,40 @@ posts.post('/addPosts', async (req, res) => {
 })
 
 posts.get('/post', async (req, res) => {
-  const { postTitle } = req.query;
-  const post = await Post.findOne({ title: postTitle });
-  let id = post.id;
-  let idUser = req.user.id || '';
-  console.log(idUser)
+  console.log(req.user)
+  if ( req.user != undefined ) {
+    const { postTitle } = req.query;
+    const post = await Post.findOne({ title: postTitle });
+    let id = post.id;
+    const comments = await Comment.find({ post: id });
 
-  const comments = await Comment.find({ post: id });
-  const personalComments = await Comment.find({ user: idUser });
+    const idUser = req.user._id;
+    const personalComments = await Comment.find({ user: idUser })
+    const data = [ post, comments, personalComments ];
 
-  const data = [ post, comments, personalComments ];
-  
-  if ( post ) {
-    res.send(data);
+    if ( post ) {
+      res.send(data);
+    }
+    else res.status(404).end()
+  } else {
+    const { postTitle } = req.query;
+    const post = await Post.findOne({ title: postTitle });
+    let id = post.id;
+
+    const comments = await Comment.find({ post: id });
+    const data = [ post, comments ];
+
+    if ( post ) {
+      res.send(data);
+    }
+    else res.status(404).end()
   }
-  else res.status(404).end()
 })
 
 posts.post('/post', async (req, res) => {
   const { comment, title } = req.body;
-  if ( comment === '' ) res.redirect('/api/posts');
+  if ( comment === '' ) res.redirect(req.get('referer'))
+  else if( req.user === undefined ) res.redirect(req.get('referer'))
   else {
     const newComment = new Comment({ content: comment })
     newComment.user = req.user.id;

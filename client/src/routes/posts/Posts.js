@@ -6,12 +6,23 @@ import eyeImg from '../../assets/eye.png'
 
 const Posts = () => {
   const [ posts, setPosts ] = useState('');
+  const [ validation, setValidation ] = useState(true);
+
+  const myUrl = window.location.href;
+  const url = myUrl.split('3000');
+  const newUrl = url[1];
 
   useEffect(() => {
-    fetch('/api/posts')
-      .then(res => res.json())
-      .then(data => setPosts(data))
-      .catch(err => console.error(err))
+    if ( validation ) {
+      fetch(newUrl)
+        .then(res => res.json())
+        .then(data => {
+          setPosts(data);
+          setValidation(false);
+        })
+        .catch(err => console.error(err))
+    }
+    
   })
 
   const consolePosts = () => {
@@ -23,24 +34,27 @@ const Posts = () => {
       
       <div className="flex flex-col items-center w-9/12">
         <div className="flex py-2 mb-8 border-y border-neutral-400 w-full">
-          <label>
-            Category:
-            <select>
-              <option>Test</option>
-              <option>Special</option>
-            </select>
-          </label>
+          <form action='/api/posts' method='GET'>
+            <label>
+              Category:
+              <select name='category' className='bg-transparent text-neutral-700'>
+                <option className='text-neutral-700'>Category</option>
+                <option className='text-neutral-700'>Paranormal</option>
+                <option className='text-neutral-700'>Special</option>
+              </select>
+            </label>
+
+            <button className='text-neutral-600 border border-neutral-600 rounded ml-5 px-5'>Find</button>
+          </form>
         </div>
 
         {
           posts.length > 0 ? (
             posts.map(post => {
               return (
-                <div className="flex w-full py-3 border-b border-neutral-400">
-                  <div className="w-2/12 flex flex-col items-center">
-                    <img src={heartImg} alt='heartImg' className='w-6/12' />
-                    <p onClick={consolePosts}>{ post.views }</p>
-                    <img src={eyeImg} alt='eyeImg' className='w-6/12 mt-6' />
+                <div loading='lazy' className="flex w-full py-3 border-b border-neutral-400">
+                  <div className="w-24 flex flex-col items-center pr-2">
+                    <img src={eyeImg} alt='eyeImg' className='w-full mt-6' />
                     <p onClick={consolePosts}>{ post.likes }</p>
                   </div>
 

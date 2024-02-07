@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
+const date = new Date().toLocaleDateString();
+const myDate = String(date)
+
 const CommentSchema = new Schema({
   content: { type: String, required: true },
   likes: { type: Number, default: 0 },
@@ -8,7 +11,7 @@ const CommentSchema = new Schema({
   username: { type: String },
   user: { type: String },
   post: { type: String },
-  date: { type: Date, default: Date.now }
+  date: { type: String, default: myDate }
 })
 
 CommentSchema.set('toJson', {

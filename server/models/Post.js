@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
+const date = new Date().toLocaleDateString();
+const MyDate = String(date)
+
 const PostSchema = new Schema({
   title: { type: String, required: true },
   imgUrl: { type: String, required: true },
@@ -14,7 +17,7 @@ const PostSchema = new Schema({
   sixthPart: { type: String, default: '' },
   views: { type: Number, default: 0 },
   likes: { type: Number, default: 0 },
-  date: { type: Date, default: Date.now }
+  date: { type: String, default: MyDate }
 })
 
 PostSchema.set('toJson', {
