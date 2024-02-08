@@ -6,18 +6,17 @@ const posts = express.Router();
 posts.use(express.json());
 
 posts.get('/', async (req, res) => {
-  const query = req.query;
   const { category } = req.query;
-  console.log( query == null )
 
   if ( category !== 'Category' ) {
     const posts = await Post.find({ category: category });
-    res.send(posts);
+    const data = posts.sort((a, b) => b.internDate - a.internDate);
+    res.send(data);
   } else {
     const posts = await Post.find({});
-    res.send(posts);
+    const data = posts.sort((a, b) => b.internDate - a.internDate);
+    res.send(data);
   }
-
 })
 
 posts.post('/addPosts', async (req, res) => {

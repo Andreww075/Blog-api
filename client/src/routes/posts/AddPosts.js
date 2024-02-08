@@ -1,13 +1,11 @@
-
-
-const AddPosts = () => {
+const AddPosts = ({ hiddenMenu }) => {
   return (
-    <div className="pt-32 flex flex-col items-center justify-center py-5 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
+    <div onClick={hiddenMenu} className="pt-32 flex flex-col items-center justify-center py-5 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
       <div className="w-5/6 px-3 py-5 shadow-md shadow-gray-800 rounded-lg">
         <div>
           <h3 className="text-center text-5xl border-b-4 border-b-stone-800 pb-4">Add Post</h3>
         </div>
-        <form action="/api/posts/addPosts" method="POST" className="w-full flex flex-col py-2">
+        <form action="/api/posts/addPosts?category=Category" method="POST" className="w-full flex flex-col py-2">
           <span className="w-full py-3">
             <label className="flex flex-col items-center text-lg tracking-tighter">
               Title:

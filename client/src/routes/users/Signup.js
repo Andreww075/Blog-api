@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Signup = () => {
+const Signup = ({ hiddenMenu }) => {
   const [ errors, setErrors ] = useState([])
   const [ username, setUsername ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -32,7 +32,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="pt-32 flex flex-col items-center justify-center py-5 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
+    <div onClick={hiddenMenu} className="pt-32 flex flex-col items-center justify-center py-5 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
       {
         errors.length > 0 ? (
           errors.map( (error, index) => {

@@ -21,7 +21,7 @@ const links = [
   }
 ]
 
-const Post = () => {
+const Post = ({ hiddenMenu }) => {
   const [ user, setUser ] = useState('');
 
   const [ data, setData ] = useState('');
@@ -67,7 +67,7 @@ const Post = () => {
   }
   
   return (
-    <div className="cursor-default alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
+    <div onClick={hiddenMenu} className="cursor-default alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
       <div className="flex flex-col items-center w-9/12">
         {
           post !== '' ? (

@@ -17,7 +17,8 @@ const PostSchema = new Schema({
   sixthPart: { type: String, default: '' },
   views: { type: Number, default: 0 },
   likes: { type: Number, default: 0 },
-  date: { type: String, default: MyDate }
+  date: { type: String, default: MyDate },
+  internDate: { type: Date, default: Date.now }
 })
 
 PostSchema.set('toJson', {

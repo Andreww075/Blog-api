@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header'
 import Home from './routes/home/Home'
 import Signup from './routes/users/Signup'
@@ -14,24 +14,35 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 
 function App() {
+  const [ showMenu, setShowMenu ] = useState(1);
+
+  const handleMenu = () => {
+    if ( showMenu === 0 ) setShowMenu(1)
+    else setShowMenu(0)
+  }
+
+  const hiddenMenu = () => {
+    setShowMenu(1)
+  }
+
   return (
     <Router>
-      <Header />
+      <Header counter={showMenu} showOptions={handleMenu} />
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/About' element={<About />}/>
+          <Route path='/' element={<Home hiddenMenu={hiddenMenu} />}/>
+          <Route path='/About' element={<About hiddenMenu={hiddenMenu} />}/>
 
-          <Route path='/api/users/signup' element={<Signup />}/>
-          <Route path='/api/users/signin' element={<Signin />}/>
-          <Route path='/api/users/signup/newUser' element={<Signup />}/>
+          <Route path='/api/users/signup' element={<Signup hiddenMenu={hiddenMenu} />}/>
+          <Route path='/api/users/signin' element={<Signin hiddenMenu={hiddenMenu} />}/>
+          <Route path='/api/users/signup/newUser' element={<Signup hiddenMenu={hiddenMenu} />}/>
           <Route path='/api/users/logout' element={<LogOut />}/>
 
-          <Route path='/api/posts' element={<Posts />}/>
-          <Route path='/api/posts/addPosts' element={<AddPosts />}/>
-          <Route path='/api/posts/post' element={<Post />}/>
-          <Route path='/api/posts/post/edit' element={<EditComment />}/>
+          <Route path='/api/posts' element={<Posts hiddenMenu={hiddenMenu} />}/>
+          <Route path='/api/posts/addPosts' element={<AddPosts hiddenMenu={hiddenMenu} />}/>
+          <Route path='/api/posts/post' element={<Post hiddenMenu={hiddenMenu} />}/>
+          <Route path='/api/posts/post/edit' element={<EditComment hiddenMenu={hiddenMenu} />}/>
         </Routes>
-      <Footer />
+      <Footer hiddenMenu={hiddenMenu} />
     </Router>
   );
 }

@@ -4,7 +4,7 @@ import bookImg from '../../assets/pixabay-books.jpg'
 import heartImg from '../../assets/heart.png'
 import eyeImg from '../../assets/eye.png'
 
-const Posts = () => {
+const Posts = ({ hiddenMenu }) => {
   const [ posts, setPosts ] = useState('');
   const [ validation, setValidation ] = useState(true);
 
@@ -22,15 +22,14 @@ const Posts = () => {
         })
         .catch(err => console.error(err))
     }
-    
-  })
+  }, [])
 
   const consolePosts = () => {
     console.log(posts);
   }
 
   return (
-    <div className="alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
+    <div onClick={hiddenMenu} className="alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
       
       <div className="flex flex-col items-center w-9/12">
         <div className="flex py-2 mb-8 border-y border-neutral-400 w-full">

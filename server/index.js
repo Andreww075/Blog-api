@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const Post = require('./models/Post')
 
 // initializations
 const app = express();
@@ -44,6 +45,12 @@ const posts = require('./routes/Posts');
 app.use('/api/posts', posts);
 
 
+
+app.get('/request', async (req, res) => {
+  const posts = await Post.find({});
+  const sortedPosts = posts.sort((a, b) => b.internDate - a.internDate);
+  res.send(sortedPosts[0]);
+})
 
 app.get('/api', (req, res) => {
   res.send(req.user);

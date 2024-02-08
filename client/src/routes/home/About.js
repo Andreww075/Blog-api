@@ -10,9 +10,9 @@ const links = [
   }
 ]
 
-const About = () => {
+const About = ({ hiddenMenu }) => {
   return (
-    <div className="tracking-tighter flex flex-col items-center justify-between pt-40 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
+    <div onClick={hiddenMenu} className="alice-regular tracking-tighter flex flex-col items-center justify-between pt-40 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
       <div className="flex justify-around items-center">
         <div className="w-5/12 border-x-2 border-dashed border-black px-4">
           <p>Have you even thought that you have been wasting your time? Because I do, however, now I have something to be better with. If you feel this away, learn about my short experience in the world of programming.</p>
@@ -28,7 +28,7 @@ const About = () => {
         </div>
       </div>
       
-      <Link to={links[0].href} className='text-center font-black mt-28 w-9/12 border border-dashed border-black text-2xl bg-neutral-500 py-1 rounded-md tracking-tighter transition-all hover:bg-neutral-400 hover:text-neutral-800'>
+      <Link to={links[0].href} className='bg-blue-950 text-blue-200 text-center font-black mt-28 w-9/12 border border-dashed border-black text-2xl py-1 rounded-md tracking-tighter transition-all hover:opacity-50'>
         Look at my posts
       </Link>
 
@@ -62,7 +62,7 @@ const About = () => {
 
       <div className='mt-8 flex flex-col items-center'>
         <p className='text-xl'>Why did I post a photo of my code at the top?... I don't know.</p>
-        <Link to={links[1].href} className='text-center mt-2 font-black text-xl bg-neutral-500 w-full py-1 rounded-md tracking-tighter transition-all hover:bg-neutral-400 hover:text-neutral-800'>
+        <Link to={links[1].href} className='text-center mt-2 font-black text-xl text-blue-200 bg-blue-950 w-full py-1 rounded-md tracking-tighter transition-all hover:opacity-50'>
           Return at Home Page
         </Link>
       </div>

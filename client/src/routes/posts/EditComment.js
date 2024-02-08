@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const EditComment = () => {
+const EditComment = ({ hiddenMenu }) => {
   const [ data, setData ] = useState('');
 
   const myUrl = window.location.href;
@@ -15,7 +15,7 @@ const EditComment = () => {
   }, [])
 
   return (
-    <div className="cursor-default alice-regular tracking-tighter flex justify-center px-5 pt-28 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
+    <div onClick={hiddenMenu} className="cursor-default alice-regular tracking-tighter flex justify-center px-5 pt-28 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
       <div className='rounded-md shadow-md shadow-gray-800 px-3 py-5 w-8/12'>
         <h4 className='text-center text-4xl'>Edit your comment:</h4>
         <form action='/api/posts/post/edit?_method=PUT' method='POST' className='flex flex-col items-center w-full' >
