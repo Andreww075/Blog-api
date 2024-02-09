@@ -37,7 +37,7 @@ const Signup = ({ hiddenMenu }) => {
         errors.length > 0 ? (
           errors.map( (error, index) => {
             return (
-              <div className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
+              <div data-aos="fade-up" className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
                 <p>{error}</p>
                 <button onClick={() => {
                   const newErrors = errors.filter( element => element !== error );
@@ -48,7 +48,7 @@ const Signup = ({ hiddenMenu }) => {
             )
           })
         ) : data.length > 0 ? (
-          <div className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
+          <div data-aos="fade-up" className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
             <p>{data}</p>
             <button onClick={() => setData('')}>X</button>
           </div>
@@ -56,7 +56,7 @@ const Signup = ({ hiddenMenu }) => {
           <div></div>
         )
         }
-      <div className="w-3/6 px-3 py-5 shadow-md shadow-gray-800 rounded-lg">
+      <div data-aos="fade-up" className="w-3/6 px-3 py-5 shadow-md shadow-gray-800 rounded-lg">
         <div>
           <h3 className="text-center text-5xl border-b-4 border-b-stone-800 pb-4">Sign Up</h3>
         </div>

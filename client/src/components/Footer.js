@@ -8,7 +8,7 @@ const Footer = ({ hiddenMenu }) => {
   let instagramUrl = 'https://www.instagram.com/g__andres__075/';
 
   return (
-    <div onClick={hiddenMenu} className="flex flex-col justify-center items-center tracking-tighter py-5 cursor-default">
+    <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" onClick={hiddenMenu} className="flex flex-col justify-center items-center tracking-tighter py-5 cursor-default">
       <p>Made by Andrés || Nvandres075@gmail.com</p>
       <div className='mt-5 flex justify-center items-center'>
         <span className='cursor-pointer shadow shadow-neutral-900 bg-zinc-200 rounded-full flex transition-all hover:scale-105 active:scale-95 active:opacity-50 mx-2 w-8'>

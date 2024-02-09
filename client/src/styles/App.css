@@ -7,6 +7,22 @@ body {
   background: #ECE9E6;
   background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
   background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+  overflow-x: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  animation: spin 1.2s linear infinite;
+  border: 3px solid rgb(5, 20, 117);
+  border-radius: 50%;
+  border-top-color: transparent;
+  height: 60px;
+  width: 60px;
 }
 
 .translate_y_-2 {

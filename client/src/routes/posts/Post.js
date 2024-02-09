@@ -79,46 +79,47 @@ const Post = ({ hiddenMenu }) => {
 
               <div className="flex w-full py-3 border-b border-neutral-400">
                 <div className="w-2/12 flex flex-col items-center">
-                  <img src={eyeImg} alt='heartImg' className='w-6/12' />
-                  <p>{ post.views }</p>
+                  <img data-aos="fade-right" src={eyeImg} alt='heartImg' className='w-6/12' />
+                  <p data-aos="fade-right">{ post.views }</p>
                 </div>
 
                 <div className="border-l border-neutral-400 pl-8 w-full">
                   <div className="w-full">
-                    <img src={ bookImg } alt={ post.title } className='w-full rounded-lg' />
-                    <h3 className='text-4xl acme-regular py-4 border-b border-neutral-500 mx-20 text-center mb-10'>{ post.title }</h3>
-                    <p className='text-xl gowun-batang-regular text-neutral-800 mb-4'>{ post.header }</p>
-                    <p className='text-xl gowun-batang-regular text-neutral-800'>{ post.firstPart }</p>
-                    <p className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.secondPart }</p>
-                    <p className='text-xl gowun-batang-regular text-neutral-800'>{ post.thirdPart }</p>
-                    <p className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.fourthPart }</p>
-                    <p className='text-xl pb-2 gowun-batang-regular text-neutral-800'>{ post.fifthPart }</p>
-                    <p className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.sixthPart }</p>
-                    <div className='flex justify-center'>
-                      <Link to={links[0].href} className="text-neutral-600 underline mt-28">{links[0].name}</Link>
-                    </div>
+                    <img data-aos="fade-up" src={ bookImg } alt={ post.title } className='w-full h-96 rounded-lg' />
+                    <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-4xl acme-regular py-4 border-b border-neutral-500 mx-20 text-center mb-10'>{ post.title }</h3>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 mb-4'>{ post.header }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800'>{ post.firstPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.secondPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800'>{ post.thirdPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.fourthPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl pb-2 gowun-batang-regular text-neutral-800'>{ post.fifthPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.sixthPart }</p>
+                    <form data-aos="fade-up" data-aos-anchor-placement="center-bottom" action='/api/posts' method='GET' className="mt-32">
+                      <input type="hidden" name="category" value='Category' />
+                      <button type='submit' className='w-full text-neutral-600 underline'>{links[0].name}</button>
+                    </form>
                   </div>
                   
                   <div className="text-2xl mx-6">
-                    <div className="flex items-center border-b border-neutral-500 mt-5 px-2">
+                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="flex items-center border-b border-neutral-500 mt-5 px-2">
                       <p>Go at </p>
                       <a href={links[1].href} className='ml-2 text-3xl'>{ links[1].name }</a>
                     </div>
-                    <div className="p-4 flex items-center my-3 rounded-lg border-2 border-dotted border-neutral-800">
-                      <img src='' alt='My' className='border border-black rounded-full ' />
-                      <div className="ml-5">
+                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="p-4 flex items-center my-3 rounded-lg border-2 border-dotted border-neutral-800">
+                      <img data-aos="fade-up-right" data-aos-anchor-placement="center-bottom" src='' alt='My' className='border border-black rounded-full ' />
+                      <div data-aos="fade-up-left" data-aos-anchor-placement="center-bottom" className="ml-5">
                         <h4 className="border-b border-neutral-500">Hi, I'm Nicolás...</h4>
                         <p className="text-lg">And I'm a young developer, with 18 years old I began to learning web development and now I can do interesting things.</p>
                       </div>
                     </div>
                   </div>
 
-                  <h3 className="text-center text-4xl border-b-2 border-neutral-600 mb-5">Comments: </h3>
+                  <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="text-center text-4xl border-b-2 border-neutral-600 mb-5">Comments: </h3>
 
                   {
                     user !== '' ? (
                       <>
-                        <div>
+                        <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                           <>
                             {
                               comments.length > 0 ? (
@@ -126,7 +127,7 @@ const Post = ({ hiddenMenu }) => {
                                   return (
                                     <div className='rounded-lg shadow-md mb-5 p-2 shadow-neutral-700 bg-gray-300'>
                                       <div className="flex justify-between">
-                                        <div>
+                                        <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                                           <h5 className='ml-3 border-b border-neutral-600 px-5 text-2xl text-zinc-800'>{ comment.username }</h5>
                                           <p className='ml-3 border-b border-neutral-600 px-5 text-xl text-zinc-700'> --> { comment.content }</p>
                                           <p className='ml-3 border-b border-neutral-600 px-5 text-2xl text-zinc-800'>{ comment.date }</p>
@@ -141,7 +142,7 @@ const Post = ({ hiddenMenu }) => {
                                                     <input type="hidden" name="content" value={comment.content} />
                                                     <input type="hidden" name="href" value={newUrl} />
                                                     <input type="hidden" name="id" value={comment._id} />
-                                                    <button type="submit">
+                                                    <button data-aos="fade-up-left" data-aos-anchor-placement="center-bottom" type="submit">
                                                       <img src={editImg} alt='edit' className='rounded shadow shadow-neutral-600 w-7 mb-3 p-1' />
                                                     </button>
                                                   </form>
@@ -150,7 +151,7 @@ const Post = ({ hiddenMenu }) => {
                                                     <input type="hidden" name="_method" value='DELETE' />
                                                     <input type='hidden' name='id' value={comment._id} />
                                                     <input type="hidden" name="href" value={newUrl} />
-                                                    <button type="submit">
+                                                    <button data-aos="fade-up-left" data-aos-anchor-placement="center-bottom" type="submit">
                                                       <img src={trashImg} alt='trash' className='rounded shadow shadow-neutral-600 w-7 mb-3 p-1' />
                                                     </button>
                                                   </form>
@@ -164,27 +165,25 @@ const Post = ({ hiddenMenu }) => {
                                   )
                                 })
                               ) : (
-                                <h4 className='text-3xl text-center text-neutral-700'>No Comments</h4>
+                                <h4 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-3xl text-center text-neutral-700'>No Comments</h4>
                               )
                             }
                           </>
-                          
-                          <h4 onClick={consoles}>Show data</h4>
                         </div>
 
-                        <h3 className='text-center text-4xl mt-5'>Add a Comment</h3>
-                        <form action="/api/posts/post" method="post" className='flex flex-col items-center border-t-2 border-neutral-600 pt-5'>
+                        <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-center text-4xl mt-5'>Add a Comment</h3>
+                        <form data-aos="fade-up" data-aos-anchor-placement="center-bottom" action="/api/posts/post" method="post" className='flex flex-col items-center border-t-2 border-neutral-600 pt-5'>
                           <input type="hidden" name="title" value={ post.title } />
-                          <label className='flex flex-col items-center w-11/12'>
+                          <label data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='flex flex-col items-center w-11/12'>
                             Write a comment: 
                             <textarea name='comment' placeholder="Comment" className="w-full bg-transparent border-b border-neutral-700 outline-none"></textarea>
                           </label>
                           
-                          <button type='submit' className="text-2xl bg-neutral-500 rounded-md mt-10 py-1 w-3/6 transition-all hover:bg-neutral-400 hover:text-neutral-800">Add</button>
+                          <button data-aos="fade-up" data-aos-anchor-placement="center-bottom" type='submit' className="text-2xl bg-neutral-500 rounded-md mt-10 py-1 w-3/6 transition-all hover:bg-neutral-400 hover:text-neutral-800">Add</button>
                         </form>
                       </>
                     ) : (
-                      <div className='flex flex-col items-center'>
+                      <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='flex flex-col items-center'>
                         <p className='text-3xl text-center text-neutral-700'>Sorry, but you need to be registered!</p>
                         <img src='' alt='im' />
                       </div>
@@ -194,14 +193,10 @@ const Post = ({ hiddenMenu }) => {
               </div>
             </div>
           ) : (
-            <div>Not Found...</div>
+            <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">Not Found...</div>
           )
         }
-
-        
-
       </div>
-
       <Aside />
     </div>
   )

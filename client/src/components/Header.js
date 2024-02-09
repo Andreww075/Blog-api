@@ -35,7 +35,7 @@ const links = [
   },
 ]
 
-const Header = ({ counter, showOptions }) => {
+const Header = ({ counter, showOptions, handleNightMode, showNightMode, dark, light, system }) => {
   const [ user, setUser ] = useState('');
 
   useEffect(() => {
@@ -46,32 +46,36 @@ const Header = ({ counter, showOptions }) => {
   }, [])
 
   return (
-    <div className="alice-regular flex justify-around items-center py-2 shadow shadow-gray-700 cursor-default text-blue-200 bg-blue-950 fixed w-full z-50">
-      <div className="flex items-center">
+    <div data-aos="fade-down" className="alice-regular flex justify-around items-center py-2 shadow shadow-gray-700 cursor-default text-blue-200 bg-blue-950 fixed w-full z-50">
+      <div data-aos="zoom-out-right" className="flex items-center">
         <img src="" alt="img" className="mr-2" />
-        <Link to={links[0].href}>
+        <Link to={links[0].href} className='transition-all hover:scale-105 hover:text-blue-300 hover:font-black'>
           <h4 className="text-end tracking-tighter text-md translate-y-2">The...</h4>
           <h3 className="text-end tracking-tighter text-3xl translate_y_-2">Andres</h3>
         </Link>
         <Link to={links[1].href} className='ml-5 py-1 px-3 rounded-md text-xl font-black transition-all hover:bg-blue-800 hover:scale-105 hover:overline'>{links[1].name}</Link>
       </div>
 
-      <div className='flex items-center'>
-        <select name='dark-mode' className=''>
-          <option className='w-5'><img src={sunImg} alt='sun' className='w-full' /></option>
-          <option className=''><img src={moonImg} alt='moon' className='w-full' /></option>
-          <option className=''><img src={monitorImg} alt='monitor' className='w-full' /></option>
-        </select>
-      </div>
+      <button onClick={handleNightMode} className='rounded-md border border-transparent w-10 transition-all hover:border-blue-200 hover:scale-105 hover:underline'><img src={sunImg} alt='d' className='w-full' /></button>
 
-      <div className='flex items-center'>
+      {
+        showNightMode ? (
+          <span data-aos="flip-right" className='absolute rounded-md shadow-md flex flex-col items-center shadow-gray-700 top-24 bg-blue-950 w-4/12 p-2'>
+              <button onClick={light} className='flex justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={sunImg} alt='sun' className='' /></button>
+              <button onClick={dark} className='flex my-2 justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={moonImg} alt='sun' className='' /></button>
+              <button onClick={system} className='flex justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={monitorImg} alt='sun' className='' /></button>
+          </span>
+        ) : (<div className='absolute'></div>)
+      }
+
+      <div data-aos="zoom-out-left" className='flex items-center'>
         <Link to={links[3].href} className='pr-3'>{links[3].name}</Link>
 
-        <button onClick={showOptions} className='rounded-md w-28 transition-all hover:shadow-sm hover:shadow-blue-200 hover:scale-105'>More...</button>
+        <button onClick={showOptions} className='rounded-md border border-transparent w-28 transition-all hover:border-blue-200 hover:scale-105 hover:underline'>More...</button>
 
         {
           counter === 0 ? (
-            <span className='absolute rounded-md shadow-md flex flex-col items-center shadow-gray-700 top-24 bg-blue-950 w-3/12 p-2 text-blue-200 text-xl'>
+            <span data-aos="flip-right" className='absolute rounded-md shadow-md flex flex-col items-center shadow-gray-700 top-24 bg-blue-950 w-full p-2 text-blue-200 text-xl'>
               <form action='/api/posts' method='GET' className='w-full text-center rounded-md border-b-8 border-double border-blue-200 transition-all hover:bg-blue-800'>
                 <input type="hidden" name="category" value='Category' />
                 <button type='submit' className='font-black w-full h-full py-2 transition-all hover:overline'>{links[2].name}</button>

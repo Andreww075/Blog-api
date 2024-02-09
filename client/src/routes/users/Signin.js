@@ -13,13 +13,13 @@ const Signin = ({ hiddenMenu }) => {
     <div onClick={hiddenMenu} className="pt-32 flex flex-col items-center justify-center py-12 shadow-md shadow-neutral-400 rounded-b-3xl cursor-default">
       {
         data.length > 0 ? (
-          <div className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
+          <div data-aos="fade-up" className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
             <p>{data}</p>
             <button onClick={() => setData('')}>X</button>
           </div>
         ) : (<div></div>)
       }
-      <div className="w-3/6 px-3 py-5 shadow-md shadow-gray-800 rounded-lg">
+      <div data-aos="fade-up" className="w-3/6 px-3 py-5 shadow-md shadow-gray-800 rounded-lg">
         <div>
           <h3 className="text-center text-5xl border-b-4 border-b-stone-800 pb-4">Sign In</h3>
         </div>
