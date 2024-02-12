@@ -21,7 +21,8 @@ posts.get('/', async (req, res) => {
 })
 
 posts.get('/addPosts', isAuthenticated, (req, res) => {
-  res.send('ok');
+  console.log('Get Request')
+  res.send({ ok: 'ok' });
 })
 
 posts.post('/addPosts', isAuthenticated, async (req, res) => {

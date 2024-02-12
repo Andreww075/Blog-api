@@ -11,7 +11,10 @@ const EditComment = ({ hiddenMenu, darkMode }) => {
     fetch(newUrl)
       .then(res => res.json())
       .then(data => setData(data))
-      .catch(err => console.error(err))
+      .catch(err => {
+        console.error(err);
+        window.location.replace('http://localhost:3000')
+      })
   }, [])
 
   return (

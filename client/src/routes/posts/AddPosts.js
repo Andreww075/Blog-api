@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 
 const AddPosts = ({ hiddenMenu }) => {
   useEffect(() => {
-    fetch('')
+    fetch('/api/posts/addPosts')
       .then(res => res.json())
       .then(data => console.log(data))
-      .catch(() => console.log('Bad Request'))
+      .catch(err => console.error(err))
   })
 
   return (
