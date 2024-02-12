@@ -4,10 +4,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 
 body {
+  background: #283048;
+  background: -webkit-linear-gradient(to right, #39425E, #283048);
+  background: linear-gradient(to right, #39425E, #283048);
+  overflow-x: hidden;
+}
+
+.light-mode-bg {
   background: #ECE9E6;
   background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
   background: linear-gradient(to right, #FFFFFF, #ECE9E6);
-  overflow-x: hidden;
+}
+
+.dark-mode-bg {
+  background: #283048;
+  background: -webkit-linear-gradient(to right, #39425E, #283048);
+  background: linear-gradient(to right, #39425E, #283048); 
 }
 
 @keyframes spin {
@@ -18,7 +30,7 @@ body {
 
 .loader {
   animation: spin 1.2s linear infinite;
-  border: 3px solid rgb(5, 20, 117);
+  border: 3px solid rgb(130, 143, 231);
   border-radius: 50%;
   border-top-color: transparent;
   height: 60px;

@@ -10,11 +10,11 @@ const links = [
   }
 ]
 
-const About = ({ hiddenMenu }) => {
+const About = ({ hiddenMenu, darkModeClass }) => {
   return (
-    <div onClick={hiddenMenu} className="alice-regular tracking-tighter flex flex-col items-center justify-between pt-40 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
-      <div className="flex justify-around items-center">
-        <div data-aos="fade-right" className="w-5/12 border-x-2 border-dashed border-black px-4">
+    <div onClick={hiddenMenu} className={darkModeClass}>
+      <div className="flex justify-around items-center pt-20">
+        <div data-aos="fade-right" className="w-5/12 border-x-2 border-dashed border-blue-950 px-4">
           <p>Have you even thought that you have been wasting your time? Because I do, however, now I have something to be better with. If you feel this away, learn about my short experience in the world of programming.</p>
           <p className="mt-3">I have several inspirations, obviously none as strong as the desire to share a little about myself to the most curious; well, this is a blog, my blog, so you know what's coming: you have to register to be able to find some comments, but it's not that restrictive, you can still see my posts.</p>
           <p className="mt-3">(Please register to find out what interests you).</p>
@@ -28,9 +28,10 @@ const About = ({ hiddenMenu }) => {
         </div>
       </div>
       
-      <Link data-aos="fade-up" to={links[0].href} className='bg-blue-950 text-blue-200 text-center font-black mt-28 w-9/12 border border-dashed border-black text-2xl py-1 rounded-md tracking-tighter transition-all hover:opacity-50'>
-        Look at my posts
-      </Link>
+      <form action='/api/posts' method='GET' className='w-9/12 mt-32'>
+        <input type="hidden" name="category" value='Category' />
+        <button type='submit' className='font-black w-full h-full bg-blue-950 text-blue-200 border border-dashed border-black text-2xl py-1 rounded-md tracking-tighter transition-all hover:opacity-50'>Look at my posts</button>
+      </form>
 
       <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" className='flex justify-around items-center bg-neutral-800 text-neutral-400 mt-14 w-full py-12'>
         <div data-aos="fade-right" className='w-5/12 flex flex-col items-center border-r-4 border-dashed border-neutral-400 py-24'>

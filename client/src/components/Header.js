@@ -35,7 +35,7 @@ const links = [
   },
 ]
 
-const Header = ({ counter, showOptions, handleNightMode, showNightMode, dark, light, system }) => {
+const Header = ({ counter, showOptions, handleNightMode, showNightMode, dark, light, system, darkMode }) => {
   const [ user, setUser ] = useState('');
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Header = ({ counter, showOptions, handleNightMode, showNightMode, dark, li
   }, [])
 
   return (
-    <div data-aos="fade-down" className="alice-regular flex justify-around items-center py-2 shadow shadow-gray-700 cursor-default text-blue-200 bg-blue-950 fixed w-full z-50">
+    <div data-aos="fade-down" className={ darkMode === 0 ? ("alice-regular flex justify-around items-center py-2 shadow shadow-gray-900 cursor-default text-blue-200 bg-blue-950 fixed w-full z-50") : darkMode === 1 ? ("alice-regular flex justify-around items-center py-2 shadow shadow-gray-700 cursor-default text-blue-200 bg-blue-950 fixed w-full z-50") : ("alice-regular flex justify-around items-center py-2 shadow shadow-gray-700 dark:shadow-gray-900 cursor-default text-blue-200 bg-blue-950 fixed w-full z-50") }>
       <div data-aos="zoom-out-right" className="flex items-center">
         <img src="" alt="img" className="mr-2" />
         <Link to={links[0].href} className='transition-all hover:scale-105 hover:text-blue-300 hover:font-black'>
@@ -61,9 +61,9 @@ const Header = ({ counter, showOptions, handleNightMode, showNightMode, dark, li
       {
         showNightMode ? (
           <span data-aos="flip-right" className='absolute rounded-md shadow-md flex flex-col items-center shadow-gray-700 top-24 bg-blue-950 w-4/12 p-2'>
-              <button onClick={light} className='flex justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={sunImg} alt='sun' className='' /></button>
-              <button onClick={dark} className='flex my-2 justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={moonImg} alt='sun' className='' /></button>
-              <button onClick={system} className='flex justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={monitorImg} alt='sun' className='' /></button>
+              <button onClick={light} className='flex justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={sunImg} alt='sun' /></button>
+              <button onClick={dark} className='flex my-2 justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={moonImg} alt='sun' /></button>
+              <button onClick={system} className='flex justify-center rounded-md border-y border-blue-200 w-full transition-all hover:bg-blue-300'><img src={monitorImg} alt='sun' /></button>
           </span>
         ) : (<div className='absolute'></div>)
       }

@@ -1,6 +1,7 @@
 const express = require('express');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment')
+const { isAuthenticated } = require('../helpers/auth');
 
 const posts = express.Router();
 posts.use(express.json());
@@ -19,7 +20,11 @@ posts.get('/', async (req, res) => {
   }
 })
 
-posts.post('/addPosts', async (req, res) => {
+posts.get('/addPosts', isAuthenticated, (req, res) => {
+  res.send('ok');
+})
+
+posts.post('/addPosts', isAuthenticated, async (req, res) => {
   const { title, imgUrl, header, firstPart, secondPart, thirdPart, fourthPart, fifthPart, sixthPart, category } = req.body;
 
   const posted = await Post.findOne({ title: title });
@@ -93,19 +98,19 @@ posts.post('/post', async (req, res) => {
   }
 })
 
-posts.delete('/post/delete', async (req, res) => {
+posts.delete('/post/delete', isAuthenticated, async (req, res) => {
   const { id, href } = req.body;
   await Comment.findByIdAndDelete({ _id: id });
   res.redirect(href);
 })
 
-posts.get('/post/edit', (req, res) => {
+posts.get('/post/edit', isAuthenticated, (req, res) => {
   const { content, href, id } = req.query;
   const data = [ content, href, id ];
   res.send(data);
 })
 
-posts.put('/post/edit', async (req, res) => {
+posts.put('/post/edit', isAuthenticated, async (req, res) => {
   const { href, content, id } = req.body;
   await Comment.findByIdAndUpdate(id, { content: content });
   req.flash('success_msg', 'Comment Updated Successfully')

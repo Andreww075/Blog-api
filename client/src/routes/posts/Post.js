@@ -21,7 +21,7 @@ const links = [
   }
 ]
 
-const Post = ({ hiddenMenu }) => {
+const Post = ({ hiddenMenu, darkModeClass }) => {
   const [ user, setUser ] = useState('');
 
   const [ data, setData ] = useState('');
@@ -67,54 +67,54 @@ const Post = ({ hiddenMenu }) => {
   }
   
   return (
-    <div onClick={hiddenMenu} className="cursor-default alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl">
+    <div onClick={hiddenMenu} className={ darkModeClass }>
       <div className="flex flex-col items-center w-9/12">
         {
           post !== '' ? (
             <div className="w-full">
-              <div className="flex py-2 mb-8 border-y border-neutral-400 w-full">
-                <p className="mr-6"><span>Category: </span>{post.category}</p>
-                <p><span>Date: </span>{post.date}</p>
+              <div className="flex py-2 mb-8 border-y border-blue-950 w-full">
+                <p className="mr-6"><span className='font-black'>Category: </span>{post.category}</p>
+                <p><span className='font-black'>Date: </span>{post.date}</p>
               </div>
 
-              <div className="flex w-full py-3 border-b border-neutral-400">
+              <div className="flex w-full py-3 border-b border-blue-950">
                 <div className="w-2/12 flex flex-col items-center">
                   <img data-aos="fade-right" src={eyeImg} alt='heartImg' className='w-6/12' />
                   <p data-aos="fade-right">{ post.views }</p>
                 </div>
 
-                <div className="border-l border-neutral-400 pl-8 w-full">
+                <div className="border-l border-blue-950 pl-8 w-full">
                   <div className="w-full">
                     <img data-aos="fade-up" src={ bookImg } alt={ post.title } className='w-full h-96 rounded-lg' />
-                    <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-4xl acme-regular py-4 border-b border-neutral-500 mx-20 text-center mb-10'>{ post.title }</h3>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 mb-4'>{ post.header }</p>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800'>{ post.firstPart }</p>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.secondPart }</p>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800'>{ post.thirdPart }</p>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.fourthPart }</p>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl pb-2 gowun-batang-regular text-neutral-800'>{ post.fifthPart }</p>
-                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 bg-neutral-300 py-10 px-10 my-4'>{ post.sixthPart }</p>
+                    <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-4xl acme-regular py-4 border-b-2 border-blue-950 mx-20 text-center mb-10'>{ post.title }</h3>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular mb-4'>{ post.header }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular'>{ post.firstPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 font-black bg-neutral-300 py-10 px-10 my-4'>{ post.secondPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular'>{ post.thirdPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 font-black bg-neutral-300 py-10 px-10 my-4'>{ post.fourthPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl pb-2 gowun-batang-regular'>{ post.fifthPart }</p>
+                    <p data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-xl gowun-batang-regular text-neutral-800 font-black bg-neutral-300 py-10 px-10 my-4'>{ post.sixthPart }</p>
                     <form data-aos="fade-up" data-aos-anchor-placement="center-bottom" action='/api/posts' method='GET' className="mt-32">
                       <input type="hidden" name="category" value='Category' />
-                      <button type='submit' className='w-full text-neutral-600 underline'>{links[0].name}</button>
+                      <button type='submit' className='w-full underline transition-all hover:font-black'>{links[0].name}</button>
                     </form>
                   </div>
                   
                   <div className="text-2xl mx-6">
-                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="flex items-center border-b border-neutral-500 mt-5 px-2">
+                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="flex items-center border-b-4 border-blue-950 mt-12 px-2">
                       <p>Go at </p>
                       <a href={links[1].href} className='ml-2 text-3xl'>{ links[1].name }</a>
                     </div>
-                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="p-4 flex items-center my-3 rounded-lg border-2 border-dotted border-neutral-800">
+                    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="p-4 flex items-center my-3 rounded-lg border-2 border-dotted border-blue-950">
                       <img data-aos="fade-up-right" data-aos-anchor-placement="center-bottom" src='' alt='My' className='border border-black rounded-full ' />
                       <div data-aos="fade-up-left" data-aos-anchor-placement="center-bottom" className="ml-5">
-                        <h4 className="border-b border-neutral-500">Hi, I'm Nicolás...</h4>
+                        <h4 className="border-b-2 border-blue-950">Hi, I'm Nicolás...</h4>
                         <p className="text-lg">And I'm a young developer, with 18 years old I began to learning web development and now I can do interesting things.</p>
                       </div>
                     </div>
                   </div>
 
-                  <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="text-center text-4xl border-b-2 border-neutral-600 mb-5">Comments: </h3>
+                  <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="text-center text-4xl border-b-2 border-blue-950 mt-20 mb-5">Comments: </h3>
 
                   {
                     user !== '' ? (
@@ -125,12 +125,12 @@ const Post = ({ hiddenMenu }) => {
                               comments.length > 0 ? (
                                 comments.map( comment => {
                                   return (
-                                    <div className='rounded-lg shadow-md mb-5 p-2 shadow-neutral-700 bg-gray-300'>
+                                    <div className='rounded-lg shadow-md mb-5 p-2 shadow-neutral-900 bg-gray-400'>
                                       <div className="flex justify-between">
                                         <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-                                          <h5 className='ml-3 border-b border-neutral-600 px-5 text-2xl text-zinc-800'>{ comment.username }</h5>
-                                          <p className='ml-3 border-b border-neutral-600 px-5 text-xl text-zinc-700'> --> { comment.content }</p>
-                                          <p className='ml-3 border-b border-neutral-600 px-5 text-2xl text-zinc-800'>{ comment.date }</p>
+                                          <h5 className='ml-3 border-b font-black text-neutral-800 border-blue-950 px-5 text-2xl'>{ comment.username }</h5>
+                                          <p className='ml-3 border-b text-neutral-800 border-blue-950 px-5 text-xl'> --> { comment.content }</p>
+                                          <p className='ml-3 border-b text-neutral-800 border-blue-950 px-5 text-2xl'>{ comment.date }</p>
                                         </div>
 
                                         <div className='flex flex-col items-center'>
@@ -143,7 +143,7 @@ const Post = ({ hiddenMenu }) => {
                                                     <input type="hidden" name="href" value={newUrl} />
                                                     <input type="hidden" name="id" value={comment._id} />
                                                     <button data-aos="fade-up-left" data-aos-anchor-placement="center-bottom" type="submit">
-                                                      <img src={editImg} alt='edit' className='rounded shadow shadow-neutral-600 w-7 mb-3 p-1' />
+                                                      <img src={editImg} alt='edit' className='rounded shadow shadow-neutral-900 w-7 mb-3 p-1' />
                                                     </button>
                                                   </form>
 
@@ -152,7 +152,7 @@ const Post = ({ hiddenMenu }) => {
                                                     <input type='hidden' name='id' value={comment._id} />
                                                     <input type="hidden" name="href" value={newUrl} />
                                                     <button data-aos="fade-up-left" data-aos-anchor-placement="center-bottom" type="submit">
-                                                      <img src={trashImg} alt='trash' className='rounded shadow shadow-neutral-600 w-7 mb-3 p-1' />
+                                                      <img src={trashImg} alt='trash' className='rounded shadow shadow-neutral-900 w-7 mb-3 p-1' />
                                                     </button>
                                                   </form>
                                                 </div>
@@ -165,26 +165,26 @@ const Post = ({ hiddenMenu }) => {
                                   )
                                 })
                               ) : (
-                                <h4 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-3xl text-center text-neutral-700'>No Comments</h4>
+                                <h4 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-3xl text-center'>No Comments</h4>
                               )
                             }
                           </>
                         </div>
 
-                        <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-center text-4xl mt-5'>Add a Comment</h3>
-                        <form data-aos="fade-up" data-aos-anchor-placement="center-bottom" action="/api/posts/post" method="post" className='flex flex-col items-center border-t-2 border-neutral-600 pt-5'>
+                        <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-center text-4xl mt-20'>Add a Comment</h3>
+                        <form data-aos="fade-up" data-aos-anchor-placement="center-bottom" action="/api/posts/post" method="post" className='flex flex-col items-center border-t-2 border-blue-950 pt-5'>
                           <input type="hidden" name="title" value={ post.title } />
                           <label data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='flex flex-col items-center w-11/12'>
                             Write a comment: 
-                            <textarea name='comment' placeholder="Comment" className="w-full bg-transparent border-b border-neutral-700 outline-none"></textarea>
+                            <textarea name='comment' placeholder="Comment" className="w-full bg-transparent border-b border-blue-950 outline-none"></textarea>
                           </label>
                           
-                          <button data-aos="fade-up" data-aos-anchor-placement="center-bottom" type='submit' className="text-2xl bg-neutral-500 rounded-md mt-10 py-1 w-3/6 transition-all hover:bg-neutral-400 hover:text-neutral-800">Add</button>
+                          <button data-aos="fade-up" data-aos-anchor-placement="center-bottom" type='submit' className="text-2xl bg-blue-950 rounded-md mt-10 py-1 w-3/6 transition-all hover:opacity-80">Add</button>
                         </form>
                       </>
                     ) : (
                       <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='flex flex-col items-center'>
-                        <p className='text-3xl text-center text-neutral-700'>Sorry, but you need to be registered!</p>
+                        <p className='text-3xl text-center'>Sorry, but you need to be registered!</p>
                         <img src='' alt='im' />
                       </div>
                     )
