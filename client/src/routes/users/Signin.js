@@ -13,7 +13,7 @@ const Signin = ({ hiddenMenu, darkModeClass }) => {
     <div onClick={hiddenMenu} className={darkModeClass}>
       {
         data.length > 0 ? (
-          <div data-aos="fade-up" className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
+          <div className='shadow shadow-neutral-500 rounded-md w-10/12 text-xl py-2 px-4 mb-2 flex justify-between items-center tracking-tighter'>
             <p>{data}</p>
             <button onClick={() => setData('')}>X</button>
           </div>

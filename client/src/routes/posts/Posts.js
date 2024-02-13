@@ -52,11 +52,6 @@ const Posts = ({ hiddenMenu, darkModeClass }) => {
             posts.map(post => {
               return (
                 <div loading='lazy' className="flex w-full py-3 border-b border-blue-950">
-                  <div className="w-24 flex flex-col items-center pr-2">
-                    <img data-aos="fade-right" src={eyeImg} alt='eyeImg' className='w-full mt-6' />
-                    <p data-aos="fade-right" onClick={consolePosts}>{ post.likes }</p>
-                  </div>
-
                   <div className="border-l border-blue-950 pl-8">
                     <img data-aos="fade-up" src={ bookImg } alt={ post.title } className='w-full h-96 rounded-lg' />
                     <h3 data-aos="fade-up" data-aos-anchor-placement="center-bottom" className='text-4xl acme-regular mt-6'>{ post.title }</h3>

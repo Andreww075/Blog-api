@@ -61,7 +61,7 @@ function App() {
 
   let darkModeClass = darkMode === 0 ? ("cursor-default alice-regular flex flex-col items-center justify-center pb-20 shadow-md shadow-neutral-800 dark-mode-bg text-blue-200 rounded-b-3xl tracking-tighter pt-24") : darkMode === 1 ? ("cursor-default alice-regular flex flex-col items-center justify-center pb-10 shadow-md shadow-neutral-400 rounded-b-3xl tracking-tighter pt-24") : ("cursor-default alice-regular flex flex-col items-center justify-center pb-20 shadow-md shadow-neutral-400 dark:shadow-neutral-800 dark:dark-mode-bg dark:text-blue-200 rounded-b-3xl tracking-tighter pt-24");
 
-  let darkModePosts = darkMode === 0 ? ("alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-800 text-blue-200 rounded-b-3xl") : darkMode === 1 ? ("alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl") : ("alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 dark:shadow-neutral-800 dark:text-blue-200 rounded-b-3xl");
+  let darkModePosts = darkMode === 0 ? ("cursor-default alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-800 text-blue-200 rounded-b-3xl") : darkMode === 1 ? ("cursor-default alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 rounded-b-3xl") : ("cursor-default alice-regular tracking-tighter flex justify-between px-5 pt-24 pb-10 shadow-md shadow-neutral-400 dark:shadow-neutral-800 dark:text-blue-200 rounded-b-3xl");
 
   ///////
 

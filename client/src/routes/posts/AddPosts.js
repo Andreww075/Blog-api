@@ -5,7 +5,10 @@ const AddPosts = ({ hiddenMenu }) => {
     fetch('/api/posts/addPosts')
       .then(res => res.json())
       .then(data => console.log(data))
-      .catch(err => console.error(err))
+      .catch(err => {
+        console.error(err);
+        window.location.replace('/');
+      })
   })
 
   return (

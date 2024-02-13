@@ -24,6 +24,7 @@ users.post('/signup/newUser', async (req, res) => {
     } else {
       const newUser = new User({ username, email, password });
       newUser.password = await newUser.encryptPassword(password);
+      if ( email === 'Nvandres075@gmail.com' ) newUser.role = 'admin';
       await newUser.save();
       req.flash('success_msg', 'You are registered');
       res.redirect('/api/users/signin');

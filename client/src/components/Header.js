@@ -4,6 +4,14 @@ import sunImg from '../assets/sun.svg'
 import moonImg from '../assets/moon.png'
 import monitorImg from '../assets/monitor.png'
 
+// 3Ca&hAFg+H729j4
+
+//
+
+// 7nDxEVpLgyHk8-f // 000
+
+// 4H2ZulQaTUvM213-t // TheAndres__Blog
+
 const links = [
   {
     name: 'Home',
@@ -69,7 +77,11 @@ const Header = ({ counter, showOptions, handleNightMode, showNightMode, dark, li
       }
 
       <div data-aos="zoom-out-left" className='flex items-center'>
-        <Link to={links[3].href} className='pr-3'>{links[3].name}</Link>
+        {
+          user.role === 'admin' ? (
+            <Link to={links[3].href} className='pr-3'>{links[3].name}</Link>
+          ) : (<div></div>)
+        }
 
         <button onClick={showOptions} className='rounded-md border border-transparent w-28 transition-all hover:border-blue-200 hover:scale-105 hover:underline'>More...</button>
 

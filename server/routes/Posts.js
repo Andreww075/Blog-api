@@ -21,8 +21,12 @@ posts.get('/', async (req, res) => {
 })
 
 posts.get('/addPosts', isAuthenticated, (req, res) => {
-  console.log('Get Request')
-  res.send({ ok: 'ok' });
+  const user = req.user;
+  if (user.role === 'admin') res.send({ ok: 'ok' });
+  else {
+    res.status(401).end();
+    res.redirect('/');
+  }
 })
 
 posts.post('/addPosts', isAuthenticated, async (req, res) => {
